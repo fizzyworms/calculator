@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, tomato, rgb(85, 179, 85));
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator form {
+  display: grid;
+  grid-template-columns: repeat(4, 65px);
+  /* 1행의 최소 크기 80, 최대는 입력값 길이에 따라 자동/ 나머지 5행은 크기 65 고정 */
+  grid-template-rows: minmax(100px, auto) repeat(5, 65px);
+}
+
+.calculator form input:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.calculator form input {
+  cursor: pointer;
+  border: 2px solid tomato;
+  outline: none;
+}
+
+input {
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+}
+
+.calculator form .clear {
+  grid-column: span 2;
+}
+
+.calculator form .result {
+  grid-column: span 2;
+}
+
+.calculator .output {
+  /* 첫번째 열부터 마지막 열까지 차지 */
+  grid-column: 1/-1;
+  background-color: tomato;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 15px 15px;
+  letter-spacing: 0.2ch;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.output .previous-operand {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.output .current-operand {
+  font-size: 24px;
+  font-weight: 800;
+}
